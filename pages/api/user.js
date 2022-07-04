@@ -1,10 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 import { created, notAllowed, internalServerError, ok } from '../../helpers/requestHelper';
-
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
-
 	try {
 		switch (req.method) {
 			case 'POST':
@@ -15,7 +13,6 @@ export default async function handler(req, res) {
 
 		return notAllowed(res);
 	}catch (e) {
-		//log error
 		return internalServerError(res);
 	}
 }
