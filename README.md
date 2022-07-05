@@ -24,7 +24,7 @@ Servido em [http://localhost:3000](http://localhost:3000)
 
 - Vercel
   - SENTRY_AUTH_TOKEN = Token exibida ao criar o projeto no Sentry
-  - SENTRY_IGNORE_API_RESOLUTION_ERROR = Fixar o problema de "API resolved without sending a response..."
+  - SENTRY_IGNORE_API_RESOLUTION_ERROR = Fixar o problema de ["API resolved without sending a response..."](https://github.com/getsentry/sentry-javascript/issues/3852)
   - SENTRY_DSN = URL do projeto Sentry. Também apresentado ao criar o projeto no Sentry.
   - QUIRREL_TOKEN = Token criada do [Quirrel](https://docs.quirrel.dev/deploying#acquire-a-token).
   - QUIRREL_ENCRYPTION_SECRET = Chave utilizada na var PASSPHRASES.
@@ -34,7 +34,7 @@ Servido em [http://localhost:3000](http://localhost:3000)
   - ENVIRONMENT
 
 - Fly
-  - PASSPHRASES = Chave de criptografia (openssl rand -hex 16).
+  - PASSPHRASES = Chave de criptografia (`openssl rand -hex 16`).
   - REDIS_URL = Connection string
 
 ## Complementos
