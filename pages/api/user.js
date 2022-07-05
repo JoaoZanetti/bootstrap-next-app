@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { created, notAllowed, internalServerError, ok } from '../../helpers/requestHelper';
+import EmailQueue from './queues/email';
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
@@ -12,7 +13,8 @@ export default async function handler(req, res) {
 		}
 
 		return notAllowed(res);
-	}catch (e) {
+	} catch (e) {
+		console.error(e);
 		return internalServerError(res);
 	}
 }
@@ -28,9 +30,12 @@ async function handleGet(req, res) {
 }
 
 async function createUser(user) {
-	return await prisma.user.create({
+	const userDb = await prisma.user.create({
 		data: user
 	});
+
+	await EmailQueue.enqueue(userDb, { delay: "24h" });
+	return userDb;
 }
 
 async function listUsers() {
