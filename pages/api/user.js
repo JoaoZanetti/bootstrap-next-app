@@ -1,9 +1,11 @@
 import { PrismaClient } from '@prisma/client';
 import { created, notAllowed, internalServerError, ok } from '../../helpers/requestHelper';
 import EmailQueue from './queues/email';
+import * as Sentry from "@sentry/nextjs";
+
 const prisma = new PrismaClient();
 
-export default async function handler(req, res) {
+const handler = async (req, res) => {
 	try {
 		switch (req.method) {
 			case 'POST':
@@ -14,7 +16,7 @@ export default async function handler(req, res) {
 
 		return notAllowed(res);
 	} catch (e) {
-		console.error(e);
+		Sentry.captureException(e);
 		return internalServerError(res);
 	}
 }
@@ -41,3 +43,5 @@ async function createUser(user) {
 async function listUsers() {
 	return await prisma.user.findMany();
 }
+
+export default Sentry.withSentry(handler);
