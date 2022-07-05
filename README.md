@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Projeto [Next.js](https://nextjs.org/) criado usando [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Iniciando
 
-First, run the development server:
+Rodando o projeto:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Servido em [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Tecnologias / Plataformas
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- [Quirrel](https://quirrel.dev/) - background/scheduled jobs.
+- [Vercel](https://vercel.com/) - publicação app / api.
+- [Prisma](https://www.prisma.io/) - ORM.
+- [Sentry](https://sentry.io/) - logging de erros/eventos.
+- [Fly.io](https://fly.io/) - deploy Quirrel e Redis.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Variáveis
 
-## Learn More
+- Vercel
 
-To learn more about Next.js, take a look at the following resources:
+  - SENTRY_AUTH_TOKEN
+  - SENTRY_IGNORE_API_RESOLUTION_ERROR
+  - SENTRY_DSN
+  - QUIRREL_TOKEN
+  - QUIRREL_ENCRYPTION_SECRET
+  - QUIRREL_API_URL
+  - QUIRREL_BASE_URL
+  - DATABASE_URL
+  - ENVIRONMENT
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Fly
+  - PASSPHRASES
+  - REDIS_URL
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Complementos
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[quirrel-redis-fly](https://github.com/JoaoZanetti/quirrel-redis-fly) - Arquivos de configuração para subir o Redis no Fly.io
+[quirrel-server-fly](https://github.com/JoaoZanetti/quirrel-server-fly) - Arquivos de configuração para subir o Quirrel no Fly.io
