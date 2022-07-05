@@ -33,8 +33,8 @@ async function createUser(user) {
 	const userDb = await prisma.user.create({
 		data: user
 	});
-
-	await EmailQueue.enqueue(userDb, { delay: "24h" });
+	console.log(userDb);
+	await EmailQueue.enqueue(userDb, { delay: "1min" });
 	return userDb;
 }
 
